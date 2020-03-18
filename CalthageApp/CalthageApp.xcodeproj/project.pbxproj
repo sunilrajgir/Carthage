@@ -13,7 +13,23 @@
 		329E44322421D5380071AFF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329E44302421D5380071AFF2 /* Main.storyboard */; };
 		329E44342421D53B0071AFF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329E44332421D53B0071AFF2 /* Assets.xcassets */; };
 		329E44372421D53B0071AFF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329E44352421D53B0071AFF2 /* LaunchScreen.storyboard */; };
+		329E44402421D7E00071AFF2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 329E443F2421D7E00071AFF2 /* Alamofire.framework */; };
+		329E44412421D7E00071AFF2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 329E443F2421D7E00071AFF2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		329E44422421D7E00071AFF2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				329E44412421D7E00071AFF2 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		329E44272421D5380071AFF2 /* CalthageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalthageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +40,7 @@
 		329E44332421D53B0071AFF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		329E44362421D53B0071AFF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		329E44382421D53B0071AFF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		329E443F2421D7E00071AFF2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329E44402421D7E00071AFF2 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +60,7 @@
 			children = (
 				329E44292421D5380071AFF2 /* CalthageApp */,
 				329E44282421D5380071AFF2 /* Products */,
+				329E443E2421D7E00071AFF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +86,14 @@
 			path = CalthageApp;
 			sourceTree = "<group>";
 		};
+		329E443E2421D7E00071AFF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				329E443F2421D7E00071AFF2 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +104,8 @@
 				329E44232421D5380071AFF2 /* Sources */,
 				329E44242421D5380071AFF2 /* Frameworks */,
 				329E44252421D5380071AFF2 /* Resources */,
+				329E44422421D7E00071AFF2 /* Embed Frameworks */,
+				329E44432421D8060071AFF2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,6 +161,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		329E44432421D8060071AFF2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "
+";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		329E44232421D5380071AFF2 /* Sources */ = {
@@ -285,6 +336,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CalthageApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +357,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CalthageApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
